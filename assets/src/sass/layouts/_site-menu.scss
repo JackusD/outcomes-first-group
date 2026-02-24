@@ -1,0 +1,56 @@
+.site-menu {
+    padding-left: 0;
+    list-style: none;
+
+    .menu-item {
+        &__icon {
+            width: 1.2em;
+            margin-top: -0.6em;
+            margin-bottom: -0.3em;
+            vertical-align: middle;
+
+            &--left {
+                margin-right: 0.5em;
+            }
+        }
+
+        &--active {
+            > .sub-menu-dropdown {
+                height: auto;
+                opacity: 1;
+                pointer-events: auto;
+                visibility: visible;
+                transition: height 0.3s, opacity 0.3s;
+            }
+        }
+    }
+
+    .sub-menu-dropdown {
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transition: height 0.3s, opacity 0.3s, visibility 0s 0.3s;
+
+        @media (prefers-reduced-motion) {
+            transition: opacity 0.3s;
+        }
+    }
+
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    li {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+    }
+}

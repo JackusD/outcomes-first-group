@@ -1,0 +1,110 @@
+@use '../tools/tools';
+@use '../settings/colours';
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'OpenSans-Italic';
+    src: url('../fonts/OpenSans-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'OpenSans-Regular', sans-serif;
+    font-size: 87.5%;
+    line-height: 1.6;
+
+    @media all and (min-width: tools.em(1024)) {
+        font-size: 100%;
+    }
+
+    @media all and (min-width: tools.em(1440)) {
+        font-size: 112.5%;
+    }
+}
+
+a {
+    color: inherit;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+ul, ol {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding-left: 1.5em;
+}
+
+li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    line-height: 1.4;
+    font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol, li, p {
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.heading-1, .heading-2, .heading-3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.heading-1 {
+    font-size: tools.rem(40);
+
+    @media all and (min-width: tools.em(768)) {
+        font-size: tools.rem(62);
+    }
+}
+
+.heading-2 {
+    font-size: tools.rem(32);
+
+    @media all and (min-width: tools.em(768)) {
+        font-size: tools.rem(48);
+    }
+}
+
+.heading-3 {
+    font-size: tools.rem(24);
+
+    @media all and (min-width: tools.em(768)) {
+        font-size: tools.rem(32);
+    }
+}
+
+.body-large {
+    font-size: tools.rem(16);
+
+    @media all and (min-width: tools.em(1024)) {
+        font-size: tools.rem(18);
+    }
+
+    @media all and (min-width: tools.em(1440)) {
+        font-size: tools.rem(22);
+    }
+}

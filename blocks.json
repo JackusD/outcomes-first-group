@@ -1,0 +1,14 @@
+[
+    {
+        "name": "test-block",
+        "assets": {
+            "css": {
+                "dependencies": []
+            },
+            "js": {
+                "dependencies": []
+            }
+        },
+        "post_types": []
+    }
+]

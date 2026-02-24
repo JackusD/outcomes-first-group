@@ -1,0 +1,63 @@
+@use '../tools/tools';
+@use '../settings/colours';
+
+.modal {
+    width: 100vw;
+    height: 100%;
+    max-width: var(--body-width);
+    position: fixed;
+    top: -100%;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.6);
+    overflow: auto;
+    visibility: hidden;
+    transition: top 0s 0.3s, transform 0.3s, visibility 0s 0.3s, opacity 0.3s;
+
+    @media all and (min-width: em(601)) {
+        padding-top: var(--admin-bar-height);
+    }
+    
+    &__inner {
+        width: var(--body-width);
+        max-height: 100%;
+        overflow: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    &__content {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 1;
+        padding-top: tools.rem(16);
+        padding-bottom: tools.rem(16);
+
+        @media all and (min-width: tools.em(375)) {
+            padding-top: tools.rem(20);
+            padding-bottom: tools.rem(20);
+        }
+    }
+
+    &__close-bg-btn {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 0;
+    }
+
+    &--active {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+}

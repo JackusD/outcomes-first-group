@@ -1,0 +1,59 @@
+{
+    "key": "group_67d96bc2cf5a4",
+    "title": "Analytics",
+    "fields": [
+        {
+            "key": "field_6928226c4ea2c",
+            "label": "Head HTML",
+            "name": "head_html",
+            "aria-label": "",
+            "type": "code_block",
+            "instructions": "HTML to include in site head e.g. Google Analytics js library.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "language": "markup",
+            "allow_in_bindings": 1
+        },
+        {
+            "key": "field_6928227d4ea2d",
+            "label": "Analytical Javascript",
+            "name": "analytical_javascript",
+            "aria-label": "",
+            "type": "code_block",
+            "instructions": "Javascript to run when user accepts analytical cookies. Do not include script tags.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "language": "javascript",
+            "allow_in_bindings": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "analytics"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1764246465
+}

@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "create-block": [
+            "php scripts/create-block.php"
+        ],
+        "delete-block": [
+            "php scripts/delete-block.php"
+        ],
+        "create-template-part": [
+            "php scripts/create-template-part.php"
+        ],
+        "delete-template-part": [
+            "php scripts/delete-template-part.php"
+        ]
+    }
+}

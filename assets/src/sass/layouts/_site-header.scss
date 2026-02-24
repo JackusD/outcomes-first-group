@@ -1,0 +1,201 @@
+@use '../tools/tools';
+@use '../settings/colours';
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    @media all and (min-width: tools.em(601)) {
+        top: var(--admin-bar-height);
+    }
+
+    &__inner {
+        padding-top: tools.rem(16);
+        padding-bottom: tools.rem(16);
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    &__logo {
+        
+    }
+
+    &__menu {
+        display: none;
+
+        @media all and (min-width: tools.em(1024)) {
+            display: flex;
+            align-items: center;
+            gap: tools.rem(60);
+            font-size: tools.rem(12);
+        }
+
+        .site-menu {
+            display: flex;
+            gap: tools.rem(30);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        .sub-menu-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    &__menu-btn {
+        display: block;
+        position: relative;
+        z-index: 3;
+
+        &.modal-is-open {
+            .site-header__menu-btn-icon {
+                div {
+                    transition: top 0.3s, transform 0.3s 0.3s, opacity 0s 0.3s;
+
+                    &:first-child {
+                        top: tools.rem(6);
+                        transform: rotate(45deg);
+                    }
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    &:nth-child(3) {
+                        top: tools.rem(-6);
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &__menu-btn-icon {
+        height: tools.rem(20);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: tools.rem(4);
+
+        @media all and (min-width: tools.em(1024)) {
+            display: none;
+        }
+
+        div {
+            width: tools.rem(20);
+            height: tools.rem(2);
+            background-color: colours.$black;
+            display: block;
+            position: relative;
+            top: 0;
+            transform: rotate(0deg);
+            transition: top 0.3s 0.3s, transform 0.3s, opacity 0s 0.3s;
+        
+            @media (prefers-reduced-motion) {
+                transition: none;
+            }
+
+            &:nth-child(2) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &--hide {
+        .site-header__inner {
+            transform: translateY(-100%);
+        }
+    }
+
+    &--scrolled {
+        .site-header__inner {
+            box-shadow: 0 tools.rem(4) tools.rem(16) rgba(colours.$black, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s 0.3s;
+        }
+    }
+}
+
+.site-menu-modal {
+    z-index: 2;
+    pointer-events: auto;
+    background-color: #FFF;
+
+    &__inner {
+        min-height: 100%;
+        overflow: hidden;
+    }
+
+    &__menu {
+        width: auto;
+        height: 100%;
+        padding-top: tools.rem(30);
+        padding-bottom: tools.rem(30);
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__contact-btn {
+        margin-top: tools.rem(30);
+    }
+
+    .site-header__inner {
+        transform: translateY(0);
+    }
+
+    .site-menu {
+        padding-left: 0;
+        list-style: none;
+        
+        > .menu-item {
+            > a {
+                margin-bottom: tools.rem(16);
+            }
+    
+            > .sub-menu-dropdown {
+                margin-left: tools.rem(16);
+    
+                @media all and (min-width: tools.em(1024)) {
+                    margin-left: tools.rem(50);
+                    margin-right: tools.rem(50);
+                }
+    
+                > .sub-menu-dropdown__inner {
+                    padding-bottom: tools.rem(16);
+    
+                    > .menu-item {
+                        margin-bottom: tools.rem(16);
+                        transition: border-left-color 0.3s, background-color 0.3s;
+    
+                        .menu-item {
+                            > a {
+                                padding: tools.rem(4) tools.rem(10) tools.rem(4) tools.rem(15);
+                            }
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+    
+                        &.menu-item--active {
+                            > a {
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,184 @@
+@use '../tools/tools';
+@use '../settings/colours';
+
+.cookies-notice {
+    width: var(--body-width);
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    opacity: 1;
+    overflow: hidden;
+    transition: opacity 0.5s;
+        
+    @media (prefers-reduced-motion) {
+        transition: none;
+    }
+
+    &:before {
+        content: '';
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(#000, 0.5);
+        pointer-events: none;
+    }
+
+    &--hide {
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s;
+
+        .cookies-notice {
+            &__inner {
+                transform: translateY(2rem);
+                transition: transform 0.5s;
+            }
+        }
+    }
+
+    &__inner {
+        overflow: auto;
+        transform: translateY(0);
+        position: relative;
+        z-index: 1;
+        background-color: #FFF;
+        transition: transform 0.5s;
+    }
+
+    &__content {
+        padding-top: tools.rem(16);
+        padding-bottom: tools.rem(16);
+        font-size: tools.rem(14);
+
+        @media all and (min-width: tools.em(375)) {
+            padding-top: tools.rem(24);
+            padding-bottom: tools.rem(24);
+        }
+
+        @media all and (min-width: tools.em(768)) {
+            padding-top: tools.rem(30);
+            padding-bottom: tools.rem(30);
+        }
+
+        @media all and (min-width: tools.em(1024)) {
+            padding-top: tools.rem(60);
+            padding-bottom: tools.rem(60);
+            gap: tools.rem(24);
+            font-size: tools.rem(16);
+        }
+    }
+
+    &__column-container {
+        @media all and (min-width: tools.em(768)) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    &__heading {
+        margin-bottom: 0;
+    }
+
+    &__btns {
+        margin-top: tools.rem(16);
+        display: flex;
+        flex-direction: column;
+        gap: tools.rem(16);
+        flex: 1;
+
+        @media all and (min-width: tools.em(580)) {
+            display: inline-flex;
+            flex-direction: row-reverse;
+            margin-left: auto;
+        }
+
+        .btn {
+            white-space: nowrap;
+        }
+    }
+
+    &__form {
+        font-size: tools.rem(14);
+        
+        @media all and (min-width: tools.em(1024)) {
+            font-size: tools.rem(16);
+        }
+    }
+
+    &__form-toggle-header {
+        font-size: 1em;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    &__options {
+        .modal__close-btn {
+            margin-left: auto;
+        }
+    }
+
+    &__save-btn {
+        margin-top: tools.rem(24);
+    }
+}
+
+.cookies-notice-options {
+    &__inner {
+        padding: tools.rem(16);
+    }
+
+    &__content {
+        max-width: tools.rem(740);
+        padding: tools.rem(48) tools.rem(16) tools.rem(16);
+        background-color: #FFF;
+        border-radius: tools.rem(16);
+
+        @media all and (min-width: tools.em(375)) {
+            padding-top: tools.rem(60);
+            padding-bottom: tools.rem(20);
+            padding-left: tools.rem(20);
+            padding-right: tools.rem(20);
+        }
+
+        @media all and (min-width: tools.em(768)) {
+            padding-bottom: tools.rem(60);
+            padding-left: tools.rem(60);
+            padding-right: tools.rem(60);
+        }
+    }
+
+    &__close-btn {
+        width: tools.rem(26);
+        height: tools.rem(26);
+        display: block;
+        position: absolute;
+        top: tools.rem(16);
+        right: tools.rem(16);
+
+        @media all and (min-width: tools.em(768)) {
+            top: tools.rem(32);
+            right: tools.rem(32);
+        }
+
+        &:before, &:after {
+            content: '';
+            width: 100%;
+            height: tools.rem(1);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background-color: colours.$black;
+            border-radius: tools.rem(1);
+        }
+
+        &:before {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        &:after {
+            transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+}

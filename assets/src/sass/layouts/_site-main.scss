@@ -1,0 +1,52 @@
+@use '../tools/tools';
+@use '../settings/colours';
+
+.site-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    > * {
+        width: 100%;
+
+        &:last-child {
+            flex: 1;
+        }
+
+        &[class*="wp-block-"]:not(.wp-block-spacer) {
+            max-width: tools.rem(1440);
+            margin-left: auto;
+            margin-right: auto;
+            padding: tools.rem(16) tools.rem(40);
+
+            @media all and (min-width: tools.em(375)) {
+                padding-left: tools.rem(20);
+                padding-right: tools.rem(20);
+            }
+
+            @media all and (min-width: tools.em(768)) {
+                padding-left: tools.rem(32);
+                padding-right: tools.rem(32);
+            }
+
+            @media all and (min-width: tools.em(1024)) {
+                padding: tools.rem(64) tools.rem(80);
+            }
+
+            @media all and (min-width: tools.em(1440)) {
+                padding-left: tools.rem(100);
+                padding-right: tools.rem(100);
+            }
+        }
+
+        &[class*="wp-block-"] + [class*="wp-block-"], &.block--background-color-white + [class*="wp-block-"] {
+            &:not(.wp-block-spacer) {
+                margin-top: tools.rem(-40);
+
+                @media all and (min-width: tools.em(1024)) {
+                    margin-top: tools.rem(-80);
+                }
+            }
+        }
+    }
+}
