@@ -12,6 +12,10 @@ $block_name = $argv[1];
 $block_name_lowercase = strtolower($block_name);
 $block_name_lowercase = str_replace(' ', '-', $block_name_lowercase);
 
+if (!is_dir(OUTCOMES_FIRST_GROUP_BLOCKS_DIR_PATH)) {
+    mkdir(OUTCOMES_FIRST_GROUP_BLOCKS_DIR_PATH);
+}
+
 if (is_dir(OUTCOMES_FIRST_GROUP_BLOCKS_DIR_PATH . "/$block_name_lowercase")) {
     echo "$block_name block already exists\n";
     exit;

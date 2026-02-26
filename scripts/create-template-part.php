@@ -12,6 +12,10 @@ $class_name = $argv[1];
 $class_name_lowercase = strtolower($class_name);
 $class_name_lowercase = str_replace(' ', '-', $class_name_lowercase);
 
+if (!is_dir(OUTCOMES_FIRST_GROUP_TEMPLATE_PARTS_DIR_PATH)) {
+    mkdir(OUTCOMES_FIRST_GROUP_TEMPLATE_PARTS_DIR_PATH);
+}
+
 if (is_dir(OUTCOMES_FIRST_GROUP_TEMPLATE_PARTS_DIR_PATH . "/$class_name_lowercase")) {
     echo "$block_name template part already exists\n";
     exit;
